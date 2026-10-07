@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Your Creative Access With Us!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a1829;
+      --bg-teal: #143d4d;
+      --bg-aqua: #2da19f;
+      --accent-yellow: #eef641;
+      --accent-cyan: #22d3ee;
+      --text-white: #ffffff;
+      --text-dim: #9fb3c8;
+      --btn-bg: #152232;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    body {
+      background: radial-gradient(circle at 85% 15%, rgba(45, 161, 159, 0.45) 0%, transparent 50%),
+                  radial-gradient(circle at 15% 85%, rgba(20, 61, 77, 0.6) 0%, transparent 60%),
+                  linear-gradient(135deg, #091522 0%, #0e2b38 45%, #1b5b66 80%, #2f8e97 100%);
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 60px;
+    }
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+    .logo-globe {
+      width: 32px;
+      height: 32px;
+      border: 1.5px solid var(--accent-cyan);
+      border-radius: 50%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo-globe::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 100%;
+      border: 1.5px solid var(--accent-cyan);
+      border-radius: 50%;
+    }
+    .logo-globe::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background: var(--accent-cyan);
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+    .nav-links a {
+      color: var(--text-white);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; color: var(--accent-yellow); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .icon-btn {
+      background: none;
+      border: none;
+      color: var(--text-white);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    /* BUTTON WITH OFFSET SHELF UNDERNEATH */
+    .shelf-btn {
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+    }
+    .shelf-btn .inner-btn {
+      display: inline-block;
+      background: var(--btn-bg);
+      color: var(--text-white);
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      position: relative;
+      z-index: 2;
+      transition: transform 0.15s ease;
+    }
+    .shelf-btn::after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      right: -3px;
+      top: 4px;
+      bottom: -4px;
+      border-radius: 999px;
+      border-bottom: 2.5px solid var(--accent-cyan);
+      border-left: 2px solid var(--accent-cyan);
+      border-right: 1.5px solid var(--accent-cyan);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .shelf-btn:hover .inner-btn {
+      transform: translateY(-2px);
+    }
+    /* HERO LAYOUT */
+    .hero-container {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.2fr 1.1fr 0.6fr;
+      align-items: center;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 60px 60px 60px;
+      gap: 40px;
+    }
+    /* LEFT COLUMN */
+    .hero-title {
+      font-size: 54px;
+      line-height: 1.1;
+      font-weight: 900;
+      color: var(--accent-yellow);
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+    .hero-desc {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-white);
+      opacity: 0.85;
+      max-width: 440px;
+      margin-bottom: 36px;
+    }
+    .btn-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 40px;
+    }
+    .btn-secondary {
+      background: rgba(21, 34, 50, 0.6);
+      border: 1px solid var(--accent-cyan);
+      color: var(--text-white);
+      padding: 12px 28px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-secondary:hover {
+      background: rgba(34, 211, 238, 0.15);
+    }
+    .participants-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .participants-label {
+      font-size: 12px;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+    .avatars {
+      display: flex;
+      align-items: center;
+    }
+    .avatars span {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: #000;
+      border: 2px solid var(--bg-dark);
+      margin-left: -8px;
+    }
+    .avatars span:first-child { margin-left: 0; background: #2dd4bf; }
+    .avatars span:nth-child(2) { background: #38bdf8; }
+    .avatars span:nth-child(3) { background: var(--accent-yellow); }
+    /* CENTER ARCH PORTAL */
+    .portal-stage {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    /* Outer Orbit Ring with Curved Text */
+    .orbit-ring {
+      position: absolute;
+      width: 380px;
+      height: 480px;
+      pointer-events: none;
+      z-index: 4;
+    }
+    .curved-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .curved-svg text {
+      fill: rgba(255, 255, 255, 0.7);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    /* Arch Shape & Neon Glow */
+    .arch-frame {
+      width: 320px;
+      height: 440px;
+      border-radius: 160px 160px 40px 40px;
+      position: relative;
+      overflow: hidden;
+      background: #081726;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      box-shadow: -25px -25px 60px rgba(236, 72, 153, 0.35),
+                  0 20px 40px rgba(0, 0, 0, 0.4);
+      z-index: 2;
+    }
+    .arch-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    /* Artist / File Badge Overlay */
+    .badge-name {
+      position: absolute;
+      bottom: 28px;
+      left: -20px;
+      z-index: 5;
+    }
+    .badge-name h4 {
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--accent-yellow);
+      line-height: 1.1;
+    }
+    .badge-name span {
+      font-size: 13px;
+      color: var(--text-white);
+      font-weight: 600;
+    }
+    /* Bottom Right Sparkles */
+    .sparkles {
+      position: absolute;
+      bottom: 15px;
+      right: 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 5;
+    }
+    .sparkle-icon {
+      color: #ffffff;
+      font-size: 20px;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.9));
+    }
+    /* RIGHT STATS COLUMN */
+    .stats-col {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-left: 30px;
+    }
+    .info-header {
+      color: var(--accent-yellow);
+      font-weight: 800;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .stat-box span {
+      display: block;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+    .stat-box strong {
+      font-size: 32px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 1024px) {
+      .navbar { padding: 20px 24px; }
+      .nav-links { display: none; }
+      .hero-container {
+        grid-template-columns: 1fr;
+        padding: 20px 24px 60px 24px;
+        text-align: center;
+        gap: 40px;
+      }
+      .hero-title { font-size: 36px; }
+      .hero-desc { margin: 0 auto 30px auto; }
+      .btn-actions { justify-content: center; }
+      .participants-wrap { align-items: center; }
+      .portal-stage { order: -1; }
+      .arch-frame { width: 260px; height: 360px; border-radius: 130px 130px 30px 30px; }
+      .orbit-ring { width: 300px; height: 400px; }
+      .badge-name { left: 15px; bottom: 15px; }
+      .stats-col {
+        flex-direction: row;
+        justify-content: space-around;
+        padding-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding-top: 24px;
+      }
+      .stat-box strong { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <div class="logo-wrap">
+        <div class="logo-globe"></div>
+        <span>DSGN</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Class</a></li>
+        <li><a href="#">Creation</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn" aria-label="Search">🔍</button>
+      <button class="icon-btn" aria-label="Cart">🛒</button>
+      <a href="https://offertrk.org/cl/i/l7v9vd" class="shelf-btn">
+        <span class="inner-btn">Access / Unlock</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="hero-container">
+    <section class="hero-content">
+      <h1 class="hero-title">Discover Your Creative Access With Us!</h1>
+      <p class="hero-desc">Unlock full high-speed direct access to verified resources and tools. Instant delivery guaranteed.</p>
+      <div class="btn-actions">
+        <a href="https://offertrk.org/cl/i/l7v9vd" class="shelf-btn">
+          <span class="inner-btn">Direct Access</span>
+        </a>
+        <a href="https://offertrk.org/cl/i/l7v9vd" class="btn-secondary">Catalogue</a>
+      </div>
+      <div class="participants-wrap">
+        <span class="participants-label">Active Users</span>
+        <div class="avatars">
+          <span></span><span></span><span>+</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="portal-stage">
+      <div class="orbit-ring">
+        <svg class="curved-svg" viewBox="0 0 400 500">
+          <path id="curvePath" d="M 40,240 A 160,180 0 0,1 360,240" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1" />
+          <text>
+            <textPath href="#curvePath" startOffset="50%" text-anchor="middle">
+              VERIFIED PORTAL ACCESS •
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+      <div class="arch-frame">
+        <img src="https://image.pollinations.ai/prompt/stylish%20creative%20artist%20portrait%20neon%20teal%20lighting%20aesthetic?width=1000&height=1500&nologo=true&seed=2094" alt="Hero Visual">
+      </div>
+
+      <div class="badge-name">
+        <h4>DIRECT</h4>
+        <span>VERIFIED EDITION</span>
+      </div>
+
+      <div class="sparkles">
+        <span class="sparkle-icon">✦</span>
+        <span class="sparkle-icon" style="font-size: 14px; margin-left: 10px;">✦</span>
+      </div>
+    </section>
+
+    <aside class="stats-col">
+      <div class="info-header">Info ⌵</div>
+      <div class="stat-box">
+        <span>Student</span>
+        <strong>24K</strong>
+      </div>
+      <div class="stat-box">
+        <span>Materials</span>
+        <strong>600+</strong>
+      </div>
+      <div class="stat-box">
+        <span>Qty. Class</span>
+        <strong>24</strong>
+      </div>
+      <div class="stat-box">
+        <span>Mentors</span>
+        <strong>48</strong>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>
