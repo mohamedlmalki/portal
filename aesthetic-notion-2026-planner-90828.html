@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Transform your chaotic schedule into a aesthetic masterpiece with this all-in-one 2026 digital command center. Click the link to grab your free template and start mastering your productivity today! #NotionTemplate #DigitalOrganization #2026Planning #LifeTracker">
+  <title>Organize Your Entire 2026 Life: Notion Template Tour</title>
+  <style>
+    :root {
+      --background: #f7f7f5;
+      --surface: #ffffff;
+      --surface-soft: #f2f2ef;
+      --text: #171717;
+      --text-secondary: #686868;
+      --text-light: #969696;
+      --border: #e7e7e3;
+      --accent: #171717;
+      --accent-hover: #333333;
+      --radius-large: 28px;
+      --radius-medium: 18px;
+      --shadow: 0 20px 60px rgba(0,0,0,0.08);
+      --shadow-soft: 0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* HEADER */
+    header {
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(247,247,245,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: auto;
+      height: 70px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: #171717;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .header-label {
+      font-size: 12px;
+      color: #10b981;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-label::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 1120px;
+      margin: auto;
+      padding: 70px 24px 80px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 70px;
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 520px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      color: #444;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: clamp(36px, 4.8vw, 60px);
+      line-height: 1.05;
+      letter-spacing: -2.2px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .hero-description {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 54px;
+      padding: 0 28px;
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 750;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-2px);
+      background: var(--accent-hover);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.16);
+    }
+
+    .arrow {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .micro-copy {
+      margin-top: 14px;
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    /* IMAGE CARD */
+    .visual-wrapper {
+      position: relative;
+    }
+
+    .visual-card {
+      position: relative;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-large);
+      padding: 10px;
+      box-shadow: var(--shadow);
+      transform: rotate(1deg);
+      transition: transform .35s ease;
+    }
+
+    .visual-card:hover {
+      transform: rotate(0deg) translateY(-4px);
+    }
+
+    .visual-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      border-radius: 20px;
+      background: #eeeeeb;
+    }
+
+    .floating-label {
+      position: absolute;
+      left: -18px;
+      bottom: 28px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 16px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .floating-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: #ecfdf5;
+      color: #059669;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .floating-text strong {
+      display: block;
+      font-size: 11px;
+      margin-bottom: 2px;
+    }
+
+    .floating-text span {
+      display: block;
+      font-size: 10px;
+      color: var(--text-light);
+    }
+
+    /* UNIVERSAL BENEFITS */
+    .benefits-section {
+      background: white;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .benefits {
+      max-width: 1120px;
+      margin: auto;
+      padding: 58px 24px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .benefit {
+      background: white;
+      padding: 26px;
+    }
+
+    .benefit-number {
+      font-size: 11px;
+      color: var(--text-light);
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .benefit h3 {
+      font-size: 15px;
+      letter-spacing: -0.2px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .benefit p {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--text-secondary);
+    }
+
+    /* LOWER CTA */
+    .final-section {
+      max-width: 760px;
+      margin: auto;
+      padding: 90px 24px 100px;
+      text-align: center;
+    }
+
+    .final-section h2 {
+      font-size: clamp(30px, 4vw, 44px);
+      letter-spacing: -1.8px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      font-weight: 800;
+    }
+
+    .final-section p {
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 570px;
+      margin: 0 auto 28px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 24px;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 11px;
+    }
+
+    /* REAL-TIME TOAST NOTIFICATION */
+    .live-toast {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 16px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 100;
+      transform: translateY(120px);
+      opacity: 0;
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+
+    .live-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-avatar {
+      width: 28px;
+      height: 28px;
+      background: #10b981;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .toast-text strong {
+      display: block;
+      font-size: 12px;
+      color: #171717;
+    }
+
+    .toast-text span {
+      display: block;
+      font-size: 11px;
+      color: #686868;
+    }
+
+    /* MOBILE BREAKPOINTS */
+    @media (max-width: 800px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 50px;
+      }
+      .hero-content {
+        max-width: 100%;
+      }
+      h1 {
+        letter-spacing: -1.8px;
+      }
+      .visual-wrapper {
+        max-width: 580px;
+        width: 100%;
+        margin: auto;
+      }
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+      .benefit {
+        padding: 25px;
+      }
+      .floating-label {
+        left: 10px;
+      }
+      .live-toast {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-inner {
+        height: 62px;
+        padding: 0 18px;
+      }
+      .header-label {
+        display: none;
+      }
+      .hero {
+        padding: 38px 18px 55px;
+      }
+      h1 {
+        font-size: 38px;
+      }
+      .hero-description {
+        font-size: 15px;
+      }
+      .primary-button {
+        width: 100%;
+      }
+      .visual-card {
+        border-radius: 21px;
+      }
+      .visual-image {
+        border-radius: 15px;
+      }
+      .floating-label {
+        bottom: 18px;
+        padding: 9px 12px;
+      }
+      .final-section {
+        padding: 65px 20px 75px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark">R</span>
+        <span>Resource Studio</span>
+      </a>
+      <span class="header-label">Verified & Active</span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Direct File Access
+        </div>
+        <h1>Organize Your Entire 2026 Life: Notion Template Tour</h1>
+        <p class="hero-description">Transform your chaotic schedule into a aesthetic masterpiece with this all-in-one 2026 digital command center. Click the link to grab your free template and start mastering your productivity today! #NotionTemplate #DigitalOrganization #2026Planning #LifeTracker</p>
+        <a href="https://offertrk.org/cl/i/l7v9vd" class="primary-button" rel="nofollow">
+          <span>Get Access Now</span>
+          <span class="arrow">→</span>
+        </a>
+        <div class="micro-copy">Instant delivery • Direct file session initialized</div>
+      </div>
+
+      <!-- RESOURCE IMAGE -->
+      <div class="visual-wrapper">
+        <div class="visual-card">
+          <img class="visual-image" src="https://image.pollinations.ai/prompt/A%20high-angle%20professional%20studio%20shot%20of%20an%20open%20MacBook%20Pro%20displaying%20a%20minimalist%2C%20pastel-themed%20Notion%20dashboard.%20Soft%2C%20diffused%20natural%20morning%20sunlight%20casting%20gentle%20shadows%20on%20a%20clean%20marble%20desk%20surface.%20Beside%20the%20laptop%20sits%20a%20ceramic%20mug%20of%20coffee%20and%20a%20sprig%20of%20dried%20eucalyptus%2C%208k%20resolution%2C%20clean%20editorial%20aesthetic%2C%20soft%20focus%20background.?width=1000&height=1250&nologo=true&seed=74050" alt="Organize Your Entire 2026 Life: Notion Template Tour" loading="eager">
+        </div>
+        <div class="floating-label">
+          <div class="floating-icon">✓</div>
+          <div class="floating-text">
+            <strong>Ready to access</strong>
+            <span>Verified direct package</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UNIVERSAL BENEFITS -->
+    <section class="benefits-section">
+      <div class="benefits">
+        <div class="benefit">
+          <div class="benefit-number">01</div>
+          <h3>Direct Delivery</h3>
+          <p>Instant file package delivered directly to your device with zero waiting queues.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-number">02</div>
+          <h3>100% Verified</h3>
+          <p>Tested, validated, and formatted for complete compatibility across all devices.</p>
+        </div>
+        <div class="benefit">
+          <div class="benefit-number">03</div>
+          <h3>Instant Unlock</h3>
+          <p>Complete the brief verification step above to access and unpack your file package immediately.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-section">
+      <h2>Ready to get started?</h2>
+      <p>Continue below to unlock this package and access your files immediately.</p>
+      <a href="https://offertrk.org/cl/i/l7v9vd" class="primary-button" rel="nofollow">
+        <span>Get Access Now</span>
+        <span class="arrow">→</span>
+      </a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>Digital Resource Studio • Direct Delivery Gateway</footer>
+</div>
+
+<!-- REAL-TIME TOAST NOTIFICATION -->
+<div id="live-toast" class="live-toast">
+  <div class="toast-avatar">✓</div>
+  <div class="toast-text">
+    <strong id="toast-name">Peter K.</strong>
+    <span id="toast-action">unlocked this package 22s ago</span>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var users = [
+      { name: "Peter K.", time: "18s ago" },
+      { name: "Sarah M.", time: "34s ago" },
+      { name: "Liam B.", time: "52s ago" },
+      { name: "Elena R.", time: "1m ago" },
+      { name: "Lucas D.", time: "40s ago" },
+      { name: "Chloe T.", time: "12s ago" }
+    ];
+    var toast = document.getElementById('live-toast');
+    var nameEl = document.getElementById('toast-name');
+    var actionEl = document.getElementById('toast-action');
+
+    function triggerToast() {
+      if (!toast || !nameEl || !actionEl) return;
+      var randomUser = users[Math.floor(Math.random() * users.length)];
+      nameEl.textContent = randomUser.name;
+      actionEl.textContent = "unlocked this package " + randomUser.time;
+      toast.classList.add('show');
+
+      setTimeout(function() {
+        toast.classList.remove('show');
+      }, 4200);
+    }
+
+    setTimeout(triggerToast, 2500);
+    setInterval(triggerToast, 8500);
+  })();
+</script>
+</body>
+</html>
