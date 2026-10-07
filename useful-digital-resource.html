@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="A practical digital resource designed to help you stay organized, save time, and get more done."
+  >
+
+  <title>Useful Digital Resource</title>
+
+  <style>
+
+    :root {
+      --background: #f7f7f5;
+      --surface: #ffffff;
+      --surface-soft: #f2f2ef;
+
+      --text: #171717;
+      --text-secondary: #686868;
+      --text-light: #969696;
+
+      --border: #e7e7e3;
+
+      --accent: #171717;
+      --accent-hover: #333333;
+
+      --radius-large: 28px;
+      --radius-medium: 18px;
+
+      --shadow:
+        0 20px 60px rgba(0,0,0,0.08);
+
+      --shadow-soft:
+        0 8px 30px rgba(0,0,0,0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      background: var(--background);
+      color: var(--text);
+
+      min-height: 100vh;
+
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* ========================================================
+       HEADER
+       ======================================================== */
+
+    header {
+      width: 100%;
+      border-bottom: 1px solid var(--border);
+      background: rgba(247,247,245,0.92);
+
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .header-inner {
+      max-width: 1120px;
+      margin: auto;
+
+      height: 70px;
+
+      padding: 0 24px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      text-decoration: none;
+
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+
+      border-radius: 9px;
+
+      background: #171717;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .header-label {
+      font-size: 12px;
+      color: var(--text-light);
+    }
+
+    /* ========================================================
+       HERO
+       ======================================================== */
+
+    .hero {
+      max-width: 1120px;
+      margin: auto;
+
+      padding:
+        70px 24px
+        80px;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 1fr);
+
+      gap: 70px;
+
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 520px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 7px 11px;
+
+      border: 1px solid var(--border);
+      border-radius: 999px;
+
+      background: rgba(255,255,255,0.7);
+
+      color: #666;
+
+      font-size: 11px;
+      font-weight: 700;
+
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+
+      background: #171717;
+
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 64px);
+
+      line-height: 1.02;
+
+      letter-spacing: -2.8px;
+
+      font-weight: 800;
+
+      margin-bottom: 22px;
+    }
+
+    .hero-description {
+      font-size: 17px;
+
+      line-height: 1.7;
+
+      color: var(--text-secondary);
+
+      max-width: 500px;
+
+      margin-bottom: 30px;
+    }
+
+    .primary-button {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      gap: 12px;
+
+      min-height: 54px;
+
+      padding: 0 24px;
+
+      background: var(--accent);
+      color: white;
+
+      text-decoration: none;
+
+      border-radius: 13px;
+
+      font-size: 14px;
+      font-weight: 750;
+
+      box-shadow:
+        0 10px 25px rgba(0,0,0,0.12);
+
+      transition:
+        transform .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .primary-button:hover {
+      transform: translateY(-2px);
+
+      background: var(--accent-hover);
+
+      box-shadow:
+        0 15px 35px rgba(0,0,0,0.16);
+    }
+
+    .arrow {
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .micro-copy {
+      margin-top: 14px;
+
+      font-size: 11px;
+
+      color: var(--text-light);
+    }
+
+    /* ========================================================
+       IMAGE CARD
+       ======================================================== */
+
+    .visual-wrapper {
+      position: relative;
+    }
+
+    .visual-card {
+      position: relative;
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: var(--radius-large);
+
+      padding: 10px;
+
+      box-shadow: var(--shadow);
+
+      transform: rotate(1deg);
+
+      transition:
+        transform .35s ease;
+    }
+
+    .visual-card:hover {
+      transform: rotate(0deg) translateY(-4px);
+    }
+
+    .visual-image {
+      width: 100%;
+
+      aspect-ratio: 4 / 3;
+
+      object-fit: cover;
+
+      display: block;
+
+      border-radius: 20px;
+
+      background: #eeeeeb;
+    }
+
+    .floating-label {
+      position: absolute;
+
+      left: -18px;
+      bottom: 28px;
+
+      background: white;
+
+      border: 1px solid var(--border);
+
+      border-radius: 14px;
+
+      padding: 12px 15px;
+
+      box-shadow: var(--shadow-soft);
+
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+    }
+
+    .floating-icon {
+      width: 32px;
+      height: 32px;
+
+      border-radius: 10px;
+
+      background: #f0f0ed;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 14px;
+    }
+
+    .floating-text strong {
+      display: block;
+
+      font-size: 11px;
+
+      margin-bottom: 2px;
+    }
+
+    .floating-text span {
+      display: block;
+
+      font-size: 10px;
+
+      color: var(--text-light);
+    }
+
+    /* ========================================================
+       BENEFITS
+       ======================================================== */
+
+    .benefits-section {
+      background: white;
+
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .benefits {
+      max-width: 1120px;
+
+      margin: auto;
+
+      padding: 58px 24px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 1px;
+
+      background: var(--border);
+    }
+
+    .benefit {
+      background: white;
+
+      padding: 24px;
+    }
+
+    .benefit-number {
+      font-size: 11px;
+
+      color: var(--text-light);
+
+      margin-bottom: 14px;
+    }
+
+    .benefit h3 {
+      font-size: 15px;
+
+      letter-spacing: -0.2px;
+
+      margin-bottom: 8px;
+    }
+
+    .benefit p {
+      font-size: 13px;
+
+      line-height: 1.6;
+
+      color: var(--text-secondary);
+    }
+
+    /* ========================================================
+       LOWER CTA
+       ======================================================== */
+
+    .final-section {
+      max-width: 760px;
+
+      margin: auto;
+
+      padding:
+        90px 24px
+        100px;
+
+      text-align: center;
+    }
+
+    .final-section h2 {
+      font-size: clamp(30px, 4vw, 44px);
+
+      letter-spacing: -1.8px;
+
+      line-height: 1.1;
+
+      margin-bottom: 16px;
+    }
+
+    .final-section p {
+      color: var(--text-secondary);
+
+      font-size: 15px;
+
+      line-height: 1.7;
+
+      max-width: 570px;
+
+      margin:
+        0 auto
+        28px;
+    }
+
+    /* ========================================================
+       FOOTER
+       ======================================================== */
+
+    footer {
+      border-top: 1px solid var(--border);
+
+      padding: 25px 24px;
+
+      text-align: center;
+
+      color: var(--text-light);
+
+      font-size: 11px;
+    }
+
+    /* ========================================================
+       MOBILE
+       ======================================================== */
+
+    @media (max-width: 800px) {
+
+      .hero {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding-top: 50px;
+      }
+
+      .hero-content {
+        max-width: 100%;
+      }
+
+      h1 {
+        letter-spacing: -1.8px;
+      }
+
+      .visual-wrapper {
+        max-width: 620px;
+
+        width: 100%;
+
+        margin: auto;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit {
+        padding: 25px;
+      }
+
+      .floating-label {
+        left: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .header-inner {
+        height: 62px;
+
+        padding:
+          0 18px;
+      }
+
+      .header-label {
+        display: none;
+      }
+
+      .hero {
+        padding:
+          38px 18px
+          55px;
+      }
+
+      h1 {
+        font-size: 40px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .primary-button {
+        width: 100%;
+      }
+
+      .visual-card {
+        border-radius: 21px;
+      }
+
+      .visual-image {
+        border-radius: 15px;
+      }
+
+      .floating-label {
+        bottom: 18px;
+
+        padding: 9px 11px;
+      }
+
+      .final-section {
+        padding:
+          65px 20px
+          75px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <a href="#" class="brand">
+
+        <span class="brand-mark">
+          R
+        </span>
+
+        <span>
+          Resource Studio
+        </span>
+
+      </a>
+
+      <span class="header-label">
+        Digital resources
+      </span>
+
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Digital Resource
+        </div>
+
+        <h1>
+          Useful Digital Resource
+        </h1>
+
+        <p class="hero-description">
+          A practical digital resource designed to help you stay organized, save time, and get more done.
+        </p>
+
+        <a
+          href="https://offertrk.org/cl/i/l7v9vd"
+          class="primary-button"
+          rel="nofollow"
+        >
+
+          <span>
+            Get Access
+          </span>
+
+          <span class="arrow">
+            →
+          </span>
+
+        </a>
+
+        <div class="micro-copy">
+          Access the resource through the button above.
+        </div>
+
+      </div>
+
+
+      <!-- RESOURCE IMAGE -->
+
+      <div class="visual-wrapper">
+
+        <div class="visual-card">
+
+          <img
+            class="visual-image"
+            src="https://image.pollinations.ai/prompt/beautiful%20premium%20digital%20resource%20mockup%2C%20clean%20modern%20editorial%20style%2C%20soft%20neutral%20background?width=1200&height=900&nologo=true&seed=31466"
+            alt="Useful Digital Resource"
+            loading="eager"
+          >
+
+        </div>
+
+        <div class="floating-label">
+
+          <div class="floating-icon">
+            ✓
+          </div>
+
+          <div class="floating-text">
+
+            <strong>
+              Ready to access
+            </strong>
+
+            <span>
+              Digital resource
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BENEFITS -->
+
+    <section class="benefits-section">
+
+      <div class="benefits">
+
+        <div class="benefit">
+
+          <div class="benefit-number">
+            01
+          </div>
+
+          <h3>
+            Practical
+          </h3>
+
+          <p>
+            Designed to be useful, simple to understand,
+            and easy to apply.
+          </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+          <div class="benefit-number">
+            02
+          </div>
+
+          <h3>
+            Easy to access
+          </h3>
+
+          <p>
+            Follow the access button above to continue
+            to the available resource.
+          </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+          <div class="benefit-number">
+            03
+          </div>
+
+          <h3>
+            Made for convenience
+          </h3>
+
+          <p>
+            A simple experience designed to help you
+            find and access useful digital content.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+
+    <section class="final-section">
+
+      <h2>
+        Ready to get started?
+      </h2>
+
+      <p>
+        Continue below to access this digital resource
+        and see what is available.
+      </p>
+
+      <a
+        href="https://offertrk.org/cl/i/l7v9vd"
+        class="primary-button"
+        rel="nofollow"
+      >
+
+        <span>
+          Get Access
+        </span>
+
+        <span class="arrow">
+          →
+        </span>
+
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    Digital Resource Studio
+
+  </footer>
+
+</div>
+
+</body>
+</html>
