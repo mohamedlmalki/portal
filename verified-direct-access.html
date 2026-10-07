@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Instant Verified Digital Access</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a1829;
+      --bg-teal: #143d4d;
+      --bg-aqua: #2da19f;
+      --accent-yellow: #eef641;
+      --accent-cyan: #22d3ee;
+      --text-white: #ffffff;
+      --text-dim: #9fb3c8;
+      --btn-bg: #152232;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    body {
+      background: radial-gradient(circle at 85% 15%, rgba(45, 161, 159, 0.45) 0%, transparent 50%),
+                  radial-gradient(circle at 15% 85%, rgba(20, 61, 77, 0.6) 0%, transparent 60%),
+                  linear-gradient(135deg, #091522 0%, #0e2b38 45%, #1b5b66 80%, #2f8e97 100%);
+      color: var(--text-white);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    /* CLEAN TOP BAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 60px;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 1.5px;
+    }
+    .logo-badge {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 10px var(--accent-cyan);
+    }
+    .server-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 16px;
+      border-radius: 999px;
+    }
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+    /* BUTTON WITH OFFSET SHELF UNDERNEATH */
+    .shelf-btn {
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+    }
+    .shelf-btn .inner-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--btn-bg);
+      color: var(--text-white);
+      padding: 16px 36px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 800;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      position: relative;
+      z-index: 2;
+      transition: transform 0.15s ease, background 0.2s ease;
+    }
+    .shelf-btn::after {
+      content: '';
+      position: absolute;
+      left: 2px;
+      right: -4px;
+      top: 4px;
+      bottom: -4px;
+      border-radius: 999px;
+      border-bottom: 2.5px solid var(--accent-cyan);
+      border-left: 2px solid var(--accent-cyan);
+      border-right: 1.5px solid var(--accent-cyan);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .shelf-btn:hover .inner-btn {
+      transform: translateY(-2px);
+      background: #1c2e42;
+      color: var(--accent-yellow);
+    }
+    /* HERO LAYOUT */
+    .hero-container {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.25fr 1fr 0.65fr;
+      align-items: center;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 60px 60px 60px;
+      gap: 40px;
+    }
+    /* LEFT COLUMN (COPY + CTA) */
+    .hero-title {
+      font-size: 48px;
+      line-height: 1.15;
+      font-weight: 900;
+      color: var(--accent-yellow);
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-white);
+      opacity: 0.9;
+      max-width: 460px;
+      margin-bottom: 34px;
+    }
+    .btn-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 34px;
+    }
+    .participants-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .avatars {
+      display: flex;
+      align-items: center;
+    }
+    .avatars span {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: #000;
+      border: 2px solid var(--bg-dark);
+      margin-left: -8px;
+    }
+    .avatars span:first-child { margin-left: 0; background: #2dd4bf; }
+    .avatars span:nth-child(2) { background: #38bdf8; }
+    .avatars span:nth-child(3) { background: var(--accent-yellow); }
+    .participants-label {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 600;
+    }
+    /* CENTER ARCH PORTAL */
+    .portal-stage {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .orbit-ring {
+      position: absolute;
+      width: 380px;
+      height: 480px;
+      pointer-events: none;
+      z-index: 4;
+    }
+    .curved-svg {
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+    .curved-svg text {
+      fill: rgba(255, 255, 255, 0.7);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .arch-frame {
+      width: 320px;
+      height: 440px;
+      border-radius: 160px 160px 40px 40px;
+      position: relative;
+      overflow: hidden;
+      background: #081726;
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      box-shadow: -20px -20px 60px rgba(34, 211, 238, 0.25),
+                  0 20px 40px rgba(0, 0, 0, 0.4);
+      z-index: 2;
+    }
+    .arch-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .badge-name {
+      position: absolute;
+      bottom: 24px;
+      left: 20px;
+      z-index: 5;
+    }
+    .badge-name h4 {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--accent-yellow);
+      line-height: 1.1;
+    }
+    .badge-name span {
+      font-size: 12px;
+      color: var(--text-white);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .sparkles {
+      position: absolute;
+      bottom: 18px;
+      right: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      z-index: 5;
+    }
+    .sparkle-icon {
+      color: #ffffff;
+      font-size: 20px;
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.9));
+    }
+    /* RIGHT STATS COLUMN (CONVERSION ORIENTED) */
+    .stats-col {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      padding-left: 30px;
+    }
+    .info-header {
+      color: var(--accent-yellow);
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .stat-box span {
+      display: block;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.75);
+      font-weight: 600;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-box strong {
+      font-size: 30px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.5px;
+    }
+    /* MOBILE RESPONSIVE OPTIMIZATION */
+    @media (max-width: 1024px) {
+      .navbar { padding: 18px 24px; }
+      .hero-container {
+        grid-template-columns: 1fr;
+        padding: 20px 24px 60px 24px;
+        text-align: center;
+        gap: 36px;
+      }
+      .hero-title { font-size: 32px; }
+      .hero-desc { margin: 0 auto 26px auto; }
+      .btn-actions { justify-content: center; }
+      .participants-wrap { justify-content: center; }
+      .portal-stage { order: -1; }
+      .arch-frame { width: 250px; height: 350px; border-radius: 125px 125px 30px 30px; }
+      .orbit-ring { width: 290px; height: 390px; }
+      .stats-col {
+        flex-direction: row;
+        justify-content: space-around;
+        padding-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding-top: 22px;
+      }
+      .stat-box strong { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo-wrap">
+      <div class="logo-badge"></div>
+      <span>PORTAL ACCESS</span>
+    </div>
+    <div class="server-status">
+      <span class="status-dot"></span> 2026 Servers Online
+    </div>
+  </header>
+
+  <main class="hero-container">
+    <section class="hero-content">
+      <h1 class="hero-title">Get Instant Verified Digital Access</h1>
+      <p class="hero-desc">Unlock full direct access to the latest verified files and packages. Fast, encrypted download available now.</p>
+      <div class="btn-actions">
+        <a href="https://offertrk.org/cl/i/l7v9vd" class="shelf-btn">
+          <span class="inner-btn">Unlock & Download Now &rarr;</span>
+        </a>
+      </div>
+      <div class="participants-wrap">
+        <div class="avatars">
+          <span></span><span></span><span>+</span>
+        </div>
+        <span class="participants-label">3,420+ downloads unlocked today</span>
+      </div>
+    </section>
+
+    <section class="portal-stage">
+      <div class="orbit-ring">
+        <svg class="curved-svg" viewBox="0 0 400 500">
+          <path id="curvePath" d="M 40,240 A 160,180 0 0,1 360,240" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1" />
+          <text>
+            <textPath href="#curvePath" startOffset="50%" text-anchor="middle">
+              SECURE CLOUD STORAGE • VERIFIED •
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+      <div class="arch-frame">
+        <img src="https://image.pollinations.ai/prompt/futuristic%20sleek%20holographic%20device%20glowing%20cyan%20neon%20aesthetic%203d%20render?width=1000&height=1500&nologo=true&seed=80659" alt="Verified Package Preview">
+      </div>
+
+      <div class="badge-name">
+        <h4>DIRECT</h4>
+        <span>VERIFIED EDITION</span>
+      </div>
+
+      <div class="sparkles">
+        <span class="sparkle-icon">✦</span>
+        <span class="sparkle-icon" style="font-size: 14px; margin-left: 10px;">✦</span>
+      </div>
+    </section>
+
+    <aside class="stats-col">
+      <div class="info-header">Package Info</div>
+      <div class="stat-box">
+        <span>Total Unlocks</span>
+        <strong>34.2K</strong>
+      </div>
+      <div class="stat-box">
+        <span>Virus Scan</span>
+        <strong>100% Clean</strong>
+      </div>
+      <div class="stat-box">
+        <span>Delivery</span>
+        <strong>Instant</strong>
+      </div>
+      <div class="stat-box">
+        <span>Access Type</span>
+        <strong>Free / Direct</strong>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>
